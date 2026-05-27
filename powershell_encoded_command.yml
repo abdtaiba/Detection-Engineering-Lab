@@ -1,0 +1,18 @@
+title: EncodedCommand Detection Rule
+id: voly9696
+author: ABDUL AZIZ TAIBA
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 1
+    CommandLine|contains:
+      - '-encodedcommand'
+      - '/encodedcommand'
+      - '-enc'
+      - '/enc'
+      - '-en'
+      - '/en'
+  condition: selection
+level: high
