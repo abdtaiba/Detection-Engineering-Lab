@@ -1,0 +1,16 @@
+title: LSASS Memory Dumping via Invoke-Mimikatz
+id: voly9696
+author: ABDUL AZIZ TAIBA
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 1
+    CommandLine|contains:
+      - 'mimikatz'
+      - 'invoke-mimikatz'
+      - 'dumpcreds'
+      - 'sekurlsa'
+  condition: selection
+level: critical
